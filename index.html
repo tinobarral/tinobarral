@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tino Barral - Marketing Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #0f3460;
+            --accent: #16213e;
+            --highlight: #e94560;
+            --success: #06d6a0;
+            --bg: #FFFFFF;
+            --bg-alt: #f8f9fa;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --border: #dfe6e9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 60px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Header - American Professional Style */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
+            padding: 70px 60px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 214, 160, 0.1) 0%, transparent 50%);
+            animation: gradientPulse 10s ease infinite;
+        }
+
+        @keyframes gradientPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .hero .tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 16px;
+            animation: slideInLeft 0.8s ease 0.2s backwards;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+            margin-bottom: 40px;
+            max-width: 800px;
+            animation: slideInLeft 0.8s ease 0.3s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            animation: fadeInUp 0.8s ease 0.5s backwards;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 15px;
+        }
+
+        .contact-detail .icon {
+            font-size: 18px;
+            color: var(--success);
+        }
+
+        .contact-detail a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail a:hover {
+            color: var(--success);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 70px 60px;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-column {
+            min-width: 0;
+        }
+
+        .sidebar {
+            min-width: 0;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+        }
+
+        /* Professional Summary */
+        .summary-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--highlight);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .summary-box strong {
+            color: var(--highlight);
+            font-weight: 700;
+        }
+
+        /* Experience Cards */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .company-name {
+            font-size: 17px;
+            color: var(--highlight);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .job-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            background: var(--bg-alt);
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .achievement-list li {
+            padding-left: 24px;
+            margin-bottom: 10px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .achievement-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Skills Sidebar */
+        .skill-section {
+            margin-bottom: 40px;
+        }
+
+        .skill-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: var(--bg-alt);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .skill-item:hover {
+            background: var(--highlight);
+            color: white;
+            border-left-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .skill-item.expert {
+            background: linear-gradient(135deg, #e94560 0%, #c23854 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Education */
+        .education-item {
+            background: var(--bg-alt);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .degree {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .school {
+            font-size: 15px;
+            color: var(--highlight);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #06d6a0 0%, #05b587 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-badge::before {
+            content: '✓';
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .language-level {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            background: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* Key Strengths Box */
+        .strengths-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 24px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .strengths-box .section-title {
+            color: white;
+            border-bottom-color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .strength-item {
+            padding: 10px 0;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .strength-item::before {
+            content: '★';
+            color: var(--success);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            padding: 30px 60px;
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-text {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-highlight {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .page-wrapper {
+                box-shadow: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 50px 30px;
+            }
+            .hero h1 {
+                font-size: 48px;
+            }
+            .content {
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Hero Header -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>TINO BARRAL</h1>
+                <p class="tagline">Marketing Manager & Business Development Specialist</p>
+                <p class="subtitle">Strategic marketer with proven expertise in retail/fashion campaigns, CRM strategy, influencer partnerships, and cross-functional team coordination</p>
+                
+                <div class="contact-bar">
+                    <div class="contact-detail">
+                        <span class="icon">📧</span>
+                        <a href="mailto:tinobarral26@gmail.com">tinobarral26@gmail.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">📱</span>
+                        <span>+33 6 63 88 98 16</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">💼</span>
+                        <a href="https://www.linkedin.com/in/tino-barral-085a88203/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">📍</span>
+                        <span>Paris, France • Available for relocation to NYC</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="two-column-layout">
+                <!-- Main Column -->
+                <div class="main-column">
+                    <!-- Professional Summary -->
+                    <section class="section">
+                        <h2 class="section-title">Professional Summary</h2>
+                        <div class="summary-box">
+                            Results-driven marketing professional with <strong>2+ years of experience in retail and B2B marketing</strong>. Proven track record in developing and executing <strong>integrated marketing campaigns</strong>, managing <strong>CRM strategies</strong>, and coordinating <strong>cross-functional teams</strong> (Paris/international). Expert in <strong>influencer partnerships</strong>, event management, and brand equity building. Strong analytical skills with proficiency in <strong>budget management</strong>, promotional calendar creation, and multi-channel customer acquisition strategies. Seeking VIE opportunity to leverage expertise in fashion/retail marketing in New York.
+                        </div>
+                    </section>
+
+                    <!-- Professional Experience -->
+                    <section class="section">
+                        <h2 class="section-title">Professional Experience</h2>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="company-name">Lefebvre Dalloz | Paris, France</div>
+                                    <h3 class="job-title">B2B Marketing & Sales Manager</h3>
+                                </div>
+                                <div class="job-date">2025 | Full-time</div>
+                            </div>
+                            <ul class="achievement-list">
+                                <li><strong>Developed and managed comprehensive marketing plans</strong> including commercial promotions, product launches, and integrated campaigns</li>
+                                <li><strong>Built strategic partnerships</strong> with B2B clients and external stakeholders to drive brand equity and customer acquisition</li>
+                                <li><strong>Coordinated cross-functional teams</strong> to create and maintain integrated promotional calendars</li>
+                                <li><strong>Managed budgets and monitored marketing performance</strong> with data-driven decision making</li>
+                                <li>Created compelling branded materials and content for multi-channel campaigns</li>
+                                <li>Drove business growth through strategic prospecting and client relationship management</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="company-name">Lefebvre Dalloz | Paris, France</div>
+                                    <h3 class="job-title">Market Manager - HR Solutions</h3>
+                                </div>
+                                <div class="job-date">2024-2025 | Contract</div>
+                            </div>
+                            <ul class="achievement-list">
+                                <li><strong>Spearheaded annual marketing plan development</strong> for HR and social action markets (2025 roadmap)</li>
+                                <li><strong>Managed partnerships with key stakeholders</strong>: HR consultants, CSE media, industry influencers</li>
+                                <li><strong>Created high-impact marketing collateral</strong>: B2B newsletters, product sheets, customer testimonials, branded materials</li>
+                                <li><strong>Organized events and webinars</strong> with product demonstrations for prospects and partners</li>
+                                <li><strong>Coordinated with external agencies</strong> and managed project timelines to ensure on-time delivery</li>
+                                <li>Monitored regulatory changes and adapted content strategy accordingly</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="company-name">YelloCloud | Lyon, France</div>
+                                    <h3 class="job-title">Digital Marketing Project Manager</h3>
+                                </div>
+                                <div class="job-date">2022-2023 | Contract</div>
+                            </div>
+                            <ul class="achievement-list">
+                                <li><strong>Developed B2B acquisition strategies</strong> via multi-channel campaigns (email, social media, content marketing)</li>
+                                <li><strong>Created engaging content</strong>: customer testimonials, videos, articles driving brand awareness</li>
+                                <li><strong>Managed external creative resources</strong> (agencies, freelancers) for website redesign project</li>
+                                <li><strong>Optimized campaign performance</strong>: improved conversion rates through data analysis and A/B testing</li>
+                                <li><strong>Delivered weekly performance reports</strong> with strategic recommendations to stakeholders</li>
+                                <li>Conducted daily trend monitoring in digital marketing and social media</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="company-name">Efficia Agency | Montélimar, France</div>
+                                    <h3 class="job-title">Co-Founder & Marketing Strategist</h3>
+                                </div>
+                                <div class="job-date">2022-2024 | Entrepreneurship</div>
+                            </div>
+                            <ul class="achievement-list">
+                                <li><strong>Developed customized marketing strategies</strong> for 15 local SMEs focusing on customer acquisition</li>
+                                <li><strong>Managed end-to-end creative projects</strong>: briefing, agency coordination, budget management, delivery</li>
+                                <li><strong>Built 360° marketing offering</strong>: SEO/SEM, social media, website creation, marketing automation</li>
+                                <li><strong>Successfully managed multiple concurrent projects</strong> while respecting budgets and deadlines</li>
+                                <li>Trained clients on digital tools and marketing best practices</li>
+                                <li>Maintained active market intelligence on digital trends and social media innovations</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section class="section">
+                        <h2 class="section-title">Education</h2>
+                        
+                        <div class="education-item">
+                            <h3 class="degree">Master's Degree in Digital Strategy</h3>
+                            <div class="school">Digital Campus Paris</div>
+                            <div class="edu-date">2023-2025 | Specialization: Growth Marketing & B2C/B2B Acquisition</div>
+                        </div>
+
+                        <div class="education-item">
+                            <h3 class="degree">Bachelor's Degree in Digital Project Management</h3>
+                            <div class="school">Digital Campus Lyon</div>
+                            <div class="edu-date">2020-2023 | Focus: Marketing, Communications & Digital Strategy</div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Key Strengths -->
+                    <section class="section">
+                        <div class="strengths-box">
+                            <h2 class="section-title">Key Strengths</h2>
+                            <div class="strength-item">Strong analytical skills with Excel proficiency</div>
+                            <div class="strength-item">Exceptional attention to detail</div>
+                            <div class="strength-item">Proven track record driving results</div>
+                            <div class="strength-item">Excellent interpersonal & collaborative skills</div>
+                            <div class="strength-item">Creative problem-solving abilities</div>
+                            <div class="strength-item">Strong work ethic & initiative</div>
+                        </div>
+                    </section>
+
+                    <!-- Core Skills -->
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">💼 Marketing Expertise</h3>
+                        <div class="skill-list">
+                            <div class="skill-item expert">Marketing Plan Development</div>
+                            <div class="skill-item expert">CRM Strategy & Management</div>
+                            <div class="skill-item expert">Campaign Management</div>
+                            <div class="skill-item">Influencer Programs</div>
+                            <div class="skill-item">Partnership Development</div>
+                            <div class="skill-item">Event Management</div>
+                            <div class="skill-item">Budget Management</div>
+                            <div class="skill-item">Promotional Calendars</div>
+                        </div>
+                    </section>
+
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">🎨 Creative & Content</h3>
+                        <div class="skill-list">
+                            <div class="skill-item expert">Content Creation</div>
+                            <div class="skill-item expert">Branded Materials Design</div>
+                            <div class="skill-item">Catalog Production</div>
+                            <div class="skill-item">Agency Coordination</div>
+                            <div class="skill-item">Adobe Creative Suite</div>
+                            <div class="skill-item">Figma</div>
+                        </div>
+                    </section>
+
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">📊 Digital & Analytics</h3>
+                        <div class="skill-list">
+                            <div class="skill-item expert">Google Analytics 4</div>
+                            <div class="skill-item expert">Excel (Advanced)</div>
+                            <div class="skill-item">Email Marketing</div>
+                            <div class="skill-item">Social Media Marketing</div>
+                            <div class="skill-item">SEO/SEM</div>
+                            <div class="skill-item">Marketing Automation</div>
+                            <div class="skill-item">Data Analysis</div>
+                        </div>
+                    </section>
+
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">🛠️ Tools & Platforms</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">HubSpot CRM</div>
+                            <div class="skill-item">Salesforce</div>
+                            <div class="skill-item">Mailchimp</div>
+                            <div class="skill-item">Microsoft Office Suite</div>
+                            <div class="skill-item">Slack / Teams</div>
+                            <div class="skill-item">Meta Business Suite</div>
+                        </div>
+                    </section>
+
+                    <!-- Certifications -->
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">🏆 Certifications</h3>
+                        <div class="cert-grid">
+                            <div class="cert-badge">Google Analytics 4</div>
+                            <div class="cert-badge">Meta Blueprint</div>
+                            <div class="cert-badge">Inbound Marketing</div>
+                        </div>
+                    </section>
+
+                    <!-- Languages -->
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">🌍 Languages</h3>
+                        <div class="language-item">
+                            <span class="language-name">French</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">Professional (C1)</span>
+                        </div>
+                    </section>
+
+                    <!-- Additional Info -->
+                    <section class="section skill-section">
+                        <h3 class="skill-section-title">📋 Additional</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Remote Work Experience</div>
+                            <div class="skill-item">Cross-Cultural Communication</div>
+                            <div class="skill-item">Project Management</div>
+                            <div class="skill-item">Retail/Fashion Knowledge</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                <span class="footer-highlight">Available for VIE position starting March 2026</span>
+            </p>
+            <p class="footer-text">
+                Eligible for international assignments • Open to relocation • Valid work authorization
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
